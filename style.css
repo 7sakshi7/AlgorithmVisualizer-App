@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 25rem;
+    color: aliceblue;
+    width: 100%;
+    background-color: black;
+}
+h1{
+    position: absolute;
+    left: 32%;
+    top: 10rem;
+    font-size: 70px;
+}
+h2{
+    position: absolute;
+    left: 32%;
+    top: 7rem;
+    font-size: 40px;
+}
+h3{
+    position: absolute;
+    left: 32%;
+    top: 16rem;
+    font-size: 30px;
+}
+.btn{
+    color: antiquewhite;
+    /* color: black; */
+    padding: 10px 30px;
+    position: absolute;
+    top: 25rem;
+    left: 13rem;
+    background: black;
+    font-size: 20px;
+}
+.btn a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+section{
+    background: #181f29;
+    /* height: 100rem; */
+    top: 25rem;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: 496px;
+    width: 100%;
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+}
+.algo-box{
+    /* border: 2px solid rgb(15, 15, 15); */
+    height: 400px;
+    width: 450px;
+    margin: 100px;
+    grid-row-gap: 50px;
+    box-shadow: 0px 3px 10px rgb(255 255 255 / 70%)
+    /* box-shadow: -4px 8px 20px -6px rgb(255 255 255 / 70%) */
+}
+ .algo-box h1{
+    left: 183px;
+    color: aliceblue;
+    font-size: 34px;
+}
+.desc{
+    color: aliceblue;
+    width: 363px;
+    height: 133px;
+    /* border: 2px solid white; */
+    top: 226px;
+    left: 138px;
+}
+
+/* binary search  */
+#binary-search h1{
+    left: 58rem;
+    position: absolute;
+}
+#binary-search .desc{
+    position: absolute;
+    left: 56rem;
+}
+.bsearch{
+    left: 59rem;
+}
+
+/* linear search  */
+#ls h1{
+    position: absolute;
+}
+#ls .desc{
+    position: absolute;
+}
+
+/* bubble sort */
+#bs h1{
+    top: 40rem;
+    position: absolute;
+}
+#bs .desc{
+    top: 45rem;
+    position: absolute;
+}
+.bsort{
+    top: 57rem;
+    left: 14rem;
+}
+
+/* selection sort */
+#ss h1{
+    top: 40rem;
+    position: absolute;
+    left: 58rem;
+}
+#ss .desc{
+    top: 45rem;
+    position: absolute;
+    left: 56rem;
+}
+.ssort{
+    top: 57rem;
+    position: absolute;
+    left: 59rem;
+}
+
+/* insertion sort */
+#is h1{
+    top: 79rem;
+    position: absolute;
+}
+#is .desc{
+    top: 83rem;
+    position: absolute;
+}
+.isort{
+    top: 94rem;
+    position: absolute;
+}
+
+/* merge sort */
+#ms h1{
+    top: 79rem;
+    position: absolute;
+    left: 58rem;
+}
+#ms .desc{
+    top: 83rem;
+    position: absolute;
+    left: 56rem;
+}
+#ms .msort{
+    top: 94rem;
+    position: absolute;
+    left: 62rem;
+}
+
+/* quick sort */
+#ps h1{
+    top: 42px;
+    position: relative;
+    left: 111px;
+}
+#ps .desc{
+    top: 5rem;
+    position: relative;
+    left: 3rem;
+}
+#ps .psort{
+    top: 9rem;
+    position: relative;
+    left: 8rem;
+}
+
+/* shortest path */
+#sh-path h1{
+    top: 42px;
+    position: relative;
+    left: 52px;
+    font-size: 25px;
+}
+#sh-path .desc{
+    top: 5rem;
+    position: relative;
+    left: 3rem;
+}
+.sh-path-find{
+    top: 9rem;
+    position: relative;
+    left: 8rem;
+}
