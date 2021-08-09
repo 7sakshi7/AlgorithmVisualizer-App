@@ -20,6 +20,7 @@ class PriorityQueue {
         return this.Array.shift()
     }
 }
+// coordinates / position
 let xcor = [0, 0, -1, 1];
 let ycor = [-1, 1, 0, 0];
 
@@ -76,25 +77,21 @@ async function findCoords() {
     let c = 0;
     for (let i = 1; i <= 12; i++) {
         for (let j = 1; j <= 34; j++) {
-            // console.log(i,j);
-            // console.log(cells[((i - 1) * 34) + j]);
-            // console.log(c, i, j, (i * (j - 1)), (i + j), (i * j));
             if (getComputedStyle(cells[c]).backgroundColor == "rgb(255, 127, 80)") {
-                sx = i, sy = j;
-                // console.log(sx, sy, c);
+                sx = i, sy = j;      
             }
             else if (getComputedStyle(cells[c]).backgroundColor == "rgb(255, 20, 147)") {
-                dx = i, dy = j;
-                // console.log(dx, dy, c);
+                dx = i, dy = j;    
             }
             c++;
         }
     }
-    console.log(sx, sy, dx, dy);
-
+     if(sx==-1 || sy==-1 || dx==-1 || dy==-1){
+        alert('Select Both Source And Destination');
+        return;
+    }
     await findPath();
     drawPath(sx, sy, countSteps, dx, dy);
-    // console.log();
 }
 function sleep() {
     return new Promise(resolve => setTimeout(resolve, 50));
@@ -102,7 +99,6 @@ function sleep() {
 
 // Algorithm
 async function findPath() {
-    // console.log(sx, sy, dx, dy);
     arr.push([sx, sy])
     let found = 0;
     while (Array.isArray(arr) && arr.length) {
@@ -186,9 +182,7 @@ function reConstructPath(came_from, dx, dy, x, y) {
     a = dx, b = dy
     const cells = document.querySelectorAll('.cell');
     cells[((dx - 1) * 34) + dy].style.backgroundColor = "rgb(255, 255, 16)";
-    // console.log(came_from.get([5, 6]));
     while (came_from.get(`[${a},${b}]`) != [x, y]) {
-        // console.log(came_from.get(`[${a},${b}]`));
         temp = came_from.get(`[${a},${b}]`);
         console.log(temp);
         a = temp[0]
@@ -228,22 +222,17 @@ function drawPath(x, y, count, dx, dy) {
 
     while (Array.isArray(p.Array) && p.Array.length) {
         currentValue = p.dequeue()
-        // console.log(currentValue);
         current = currentValue[2]
         openSet.delete([current[0], current[1]])
         updateNeighbours(current[0], current[1]);
 
         if (current[0] == dx && current[1] == dy) {
-            console.log('reached');
             break;
         }
         neighbour = neighbours[(current[0] - 1) * 34 + current[1]]
-        console.log(neighbour);
-        // for(const nodes in neighbour){
+       
         for (let i = 0; i < neighbour.length; i++) {
             const nodes = neighbour[i]
-            // console.log(nodes);
-            // updateNeighbours(nodes[0],nodes[1])
             tempCost = cost_till_this_node[current[0] - 1][current[1] - 1] + 1
 
             if (tempCost < cost_till_this_node[nodes[0] - 1][nodes[1] - 1]) {
@@ -265,195 +254,4 @@ function drawPath(x, y, count, dx, dy) {
 
     }
     reConstructPath(came_from, dx, dy, x, y)
-
-
 }
-// route = []
-// finalRoute = []
-
-// function drawPath(x, y, count, dx, dy) {
-//     if (x == dx && y == dy && count >= 0) {
-//         finalRoute = [...route]
-//         console.log(finalRoute);
-//         colorPath()
-//         return 1;
-//     }
-//     route.push([x, y])
-//     if (isFeasible(x + 1, y, count - 1)) {
-//         s = drawPath(x + 1, y, count - 1, dx, dy)
-//         if (s) return 1;
-//     }
-//     if (isFeasible(x - 1, y, count - 1)) {
-//         s = drawPath(x - 1, y, count - 1, dx, dy)
-//         if (s) return 1;
-//     }
-//     if (isFeasible(x, y + 1, count - 1)) {
-//         s = drawPath(x, y + 1, count - 1, dx, dy)
-//         if (s) return 1;
-//     }
-//     if (isFeasible(x, y - 1, count - 1)) {
-//         s = drawPath(x, y - 1, count - 1, dx, dy)
-//         if (s) return 1;
-//     }
-//     route.pop()
-//     return 0;   
-// }
-// function colorPath() {
-//     const cells = document.querySelectorAll('.cell');
-//     for (let i = 0; i < finalRoute.length; i++) {
-//         cells[((finalRoute[i][0] - 1) * 34) + finalRoute[i][1] - 1].style.backgroundColor = "rgb(255, 255, 16)";
-//     }
-// }
-// visit = new Array(12)
-// for(let i=0;i<12;i++){
-//     visit[i] = new Array(34);
-//     for(let j=0;j<34;j++){
-//         visit[i][j] = false;
-//     }
-// }
-// function drawPath(x, y, count, dx, dy) {
-//     console.log(x, y, count, dx, dy);
-//     if (x === dx && y === dy && count >= 0) {
-        // const cells = document.querySelectorAll('.cell');
-        // cells[((x - 1) * 34) + y - 1].style.backgroundColor = "rgb(255, 255, 16)";
-//         console.log('reached', ((x - 1) * 34) + y, x, y);
-//         return 1;
-//     }
-
-//     for (let i = 0; i < 4; i++) {
-//         let xcord = xcor[i] + x;
-//         let ycord = ycor[i] + y;
-//         // let dxcord = xcor[i]+dx
-//         // let dycord = ycor[i] +dy
-//         if (isFeasible(xcord, ycord, count - 1)) {
-//             console.log('feasible');
-
-//             if (drawPath(xcord, ycord, count - 1, dx, dy)) {
-//                 console.log('foundPath', ((xcord - 1) * 34) + ycord - 1, xcord, ycord);
-//                 const cells = document.querySelectorAll('.cell');
-//                 cells[((xcord - 1) * 34) + ycord - 1].style.backgroundColor = "rgb(255, 255, 16)";
-//                 // cells[((dxcord - 1) * 34) + dycord - 1].style.backgroundColor = "rgb(255, 255, 16)";
-//                 return 1;
-//             }
-//         }
-
-//     }
-//     return 0;
-// }
-
-// function isFeasible(x, y, count) {
-//     if (x > 1 && y > 1 && x <= 12 && y <= 34 && count >= 0) {
-//         const cells = document.querySelectorAll('.cell');
-//         const color = getComputedStyle(cells[((x - 1) * 34) + y]).backgroundColor;
-//         if (color != "rgb(0, 0, 0)"){
-//             neighbours.push([x,y])
-
-//         }
-//             return 1;
-
-//         console.log('returning 0');
-//     }
-//     return 0;
-// }
-// function isFeasible(x, y, count) {
-//     if (x > 1 && y > 1 && x <= 12 && y <= 34 && count >= 0 ) {
-//         const cells = document.querySelectorAll('.cell');
-//         const color = getComputedStyle(cells[((x - 1) * 34) + y]).backgroundColor;
-//         if (color != "rgb(0, 0, 0)" && color!="#0000ff")
-//             return 1;
-
-//         console.log('returning 0');
-//     }
-//     return 0;
-// }
-
-// function drawPath(x, y, count) {
-//     console.log(x, y, dx, dy, count, typeof x, typeof dx);
-//     if (x < 1 || y < 1 || x > 17 || y > 45 || count <= 0) {
-//         console.log('returning 0');
-//         return 0;
-//     }
-
-//     if (x === dx && y === dy && count > 0) {
-//         const cells = document.querySelectorAll('.cell');
-//         cells[((x - 1) * 45) + (y - 1)].style.backgroundColor = "rgb(255, 255, 16)";
-//         return 1;
-//     }
-//     let counts = count;
-
-//     if (drawPath(x + 0, y - 1, counts - 1) ||
-//         drawPath(x - 1, y + 0, counts - 1) ||
-//         drawPath(x + 1, y + 0, counts - 1) ||
-//         drawPath(x + 0, y + 1, counts - 1) ||
-//         drawPath(x + 0, y + 1, counts - 1) ||
-//         drawPath(x + 1, y - 1, counts - 1) ||
-//         drawPath(x + 1, y + 0, counts - 1) ||
-//         drawPath(x + 1, y + 1, counts - 1)) {
-//         console.log('come');
-//         const cells = document.querySelectorAll('.cell');
-//         cells[((x - 1) * 45) + (y - 1)].style.backgroundColor = "rgb(255, 255, 16)";
-//         console.log('gone');
-//         return 1;
-//     }
-
-//     // console.log('1');
-//     // if (drawPath(x + 0, y - 1, counts - 1)) {
-//     //     const cells = document.querySelectorAll('.cell');
-//     //     cells[((x - 1) * 45) + (y - 1)].style.backgroundColor = "rgb(255, 255, 16)";
-//     //     f = 1;
-//     //     return 1;
-//     // }
-
-//     // console.log('2');
-//     //  if (drawPath(x - 1, y + 0, counts - 1)) {
-//     //     const cells = document.querySelectorAll('.cell');
-//     //     cells[((x - 2) * 45) + y].style.backgroundColor = "yellow";
-//     //     f = 1;
-//     //     return 1;
-//     // }
-
-//     // console.log('3');
-//     //  if (drawPath(x + 1, y + 0, counts - 1)) {
-//     //     const cells = document.querySelectorAll('.cell');
-//     //     cells[((x) * 45) + y].style.backgroundColor = "yellow";
-//     //     f = 1;
-//     //     return 1;
-//     // }
-
-//     // console.log('4');
-//     //  if (drawPath(x + 0, y + 1, counts - 1)) {
-//     //     const cells = document.querySelectorAll('.cell');
-//     //     cells[((x - 1) * 45) + y + 1].style.backgroundColor = "yellow";
-//     //     f = 1;
-//     //     return 1;
-//     // }
-
-//     // console.log('5');
-//     // if (drawPath(x + 0, y + 1, counts - 1)) {
-//     //     const cells = document.querySelectorAll('.cell');
-//     //     cells[((x - 1) * 45) + y + 1].style.backgroundColor = "yellow";
-//     //     return 1;
-//     // }
-
-    // console.log('6');
-    // if (drawPath(x + 1, y - 1, counts - 1)) {
-    //     const cells = document.querySelectorAll('.cell');
-    //     cells[((x) * 45) + y - 1].style.backgroundColor = "yellow";
-    //     return 1;
-    // }
-
-    // console.log('7');
-    // if (drawPath(x + 1, y + 0, counts - 1)) {
-    //     const cells = document.querySelectorAll('.cell');
-    //     cells[((x) * 45) + y].style.backgroundColor = "yellow";
-    //     return 1;
-    // }
-
-    // console.log('8');
-    // if (drawPath(x + 1, y + 1, counts - 1)) {
-    //     const cells = document.querySelectorAll('.cell');
-    //     cells[((x) * 45) + y + 1].style.backgroundColor = "yellow";
-    //     return 1;
-    // }
-    // return 0;
-// }
