@@ -191,7 +191,7 @@ function reConstructPath(came_from, dx, dy, x, y) {
         b = temp[1]
         cells[((a - 1) * 34) + b].style.backgroundColor = "rgb(255, 255, 16)";
     }
-    // cells[((a - 1) * 34) + b].style.backgroundColor = "rgb(255, 255, 16)";
+    cells[((a - 1) * 34) + b].style.backgroundColor = "rgb(255, 255, 16)";
 }
 function drawPath(x, y, count, dx, dy) {
     updateNeighbours(x, y);
