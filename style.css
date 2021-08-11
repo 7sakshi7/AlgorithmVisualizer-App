@@ -10,6 +10,7 @@ header{
     background-color: black;
 }
 h1{
+    text-align: center;
     font-size: 70px;
 }
 h2{
@@ -42,6 +43,8 @@ section{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .algo-box{
     display: flex;
@@ -60,7 +63,7 @@ section{
 }
 .algo-box .desc{
     color: aliceblue;
-    width: 90%;
+    width: 88%;
     height: 133px;
 }
 
