@@ -4,25 +4,23 @@
     box-sizing: border-box;
 }
 header{
+    align-items: center;
+    display: flex;
     height: 25rem;
     color: aliceblue;
     width: 100%;
     background-color: black;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 h1{
-    text-align: center;
     font-size: 70px;
 }
 h2{
-    position: absolute;
-    left: 32%;
-    top: 7rem;
     font-size: 40px;
 }
 h3{
-    position: absolute;
-    left: 32%;
-    top: 16rem;
     font-size: 30px;
 }
 .btn{
