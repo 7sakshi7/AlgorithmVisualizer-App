@@ -76,9 +76,7 @@ async function findCoords() {
     let c = 0;
     for (let i = 1; i <= 12; i++) {
         for (let j = 1; j <= 34; j++) {
-            // console.log(i,j);
-            // console.log(cells[((i - 1) * 34) + j]);
-            // console.log(c, i, j, (i * (j - 1)), (i + j), (i * j));
+
             if (getComputedStyle(cells[c]).backgroundColor == "rgb(255, 127, 80)") {
                 sx = i, sy = j;
                 // console.log(sx, sy, c);
@@ -96,7 +94,7 @@ async function findCoords() {
     }
     console.log(sx, sy, dx, dy);
 
-    await findPath();
+     await findPath();
     drawPath(sx, sy, countSteps, dx, dy);
 }
 function sleep() {
@@ -120,10 +118,12 @@ async function findPath() {
 
                 if (xcord < 1 || ycord < 1 || xcord > 12 || ycord > 34 || (((xcord - 1) * 34) + ycord) >= 408
                     || getComputedStyle(cells[((xcord - 1) * 34) + ycord]).backgroundColor != "rgb(255, 255, 255)")
-                    continue;
+                        continue;
+                    
 
                 if (xcord == dx && ycord == dy) {
                     console.log('found', countSteps - 1);
+                    found=1;
                     return;
                 }
                 else {
@@ -134,6 +134,12 @@ async function findPath() {
             await sleep();
         }
     }
+    if(!found){
+        alert('No Path Found :( All Paths Are Blocked')
+        // drawPath(sx, sy, countSteps, dx, dy);
+    }
+    // else{
+    // }
 
 }
 neighbours = new Array(407)
@@ -172,7 +178,6 @@ function updateNeighbours(x, y) {
         const color = getComputedStyle(cells[((x - 1) * 34) + y + 1]).backgroundColor;
         if (color != "rgb(0, 0, 0)") {
             neighbours[(x - 1) * 34 + y].push([x, y + 1])
-
         }
     }
 }
@@ -191,7 +196,7 @@ function reConstructPath(came_from, dx, dy, x, y) {
         b = temp[1]
         cells[((a - 1) * 34) + b].style.backgroundColor = "rgb(255, 255, 16)";
     }
-    cells[((a - 1) * 34) + b].style.backgroundColor = "rgb(255, 255, 16)";
+    // cells[((a - 1) * 34) + b-1].style.backgroundColor = "rgb(255, 255, 16)";
 }
 function drawPath(x, y, count, dx, dy) {
     updateNeighbours(x, y);
@@ -263,11 +268,4 @@ function drawPath(x, y, count, dx, dy) {
     reConstructPath(came_from, dx, dy, x, y)
 
 
-}
-// clear fields
-function clearFields(){
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach((cell,index)=>{
-        cells[index].backgroundColor="white";
-    });
 }
