@@ -19,21 +19,32 @@ else
 submit.addEventListener('click', checkInput);
 function checkInput(e) {
     if (inputField.value == "") {
-        headerText.textContent = "Enter Array!!! This field can't be empty"
-        setTimeout(() => {
-            headerText.textContent = ""
+        if (screenWidth > 681) {
 
-        }, 1500);
-        return;
-    }
-    else {
-        if (searchedNumber.value == "" || isNaN(Number(searchedNumber.value))) {
-
-            headerText.textContent = "Enter Number To Be Searched!!! This field can't be empty nor it can't be empty"
+            headerText.textContent = "Enter Array!!! This field can't be empty"
             setTimeout(() => {
                 headerText.textContent = ""
 
             }, 1500);
+        }
+        else {
+            alert('Enter Array!!! This field can\'t be empty')
+        }
+        return;
+    }
+    else {
+        if (searchedNumber.value == "" || isNaN(Number(searchedNumber.value))) {
+            if (screenWidth > 681) {
+
+                headerText.textContent = "Enter Number To Be Searched!!! This field can't be empty nor it can't be empty"
+                setTimeout(() => {
+                    headerText.textContent = ""
+
+                }, 1500);
+            }
+            else {
+                alert("Enter Number To Be Searched!!! This field can't be empty nor it can't be empty")
+            }
             return;
         }
 
@@ -54,13 +65,18 @@ function showArray(e) {
     for (var ele in arr) {
         console.log(Number(ele), typeof Number(ele));
         if (isNaN(Number(ele))) {
-
-            headerText.textContent = "Enter a valid Array"
-            setTimeout(() => {
-                headerText.textContent = "";
-            }, 1000);
+            if (screenWidth > 681) {
+                headerText.textContent = "Enter a valid Array"
+                setTimeout(() => {
+                    headerText.textContent = "";
+                }, 1000);
+            }
+            else {
+                alert("Enter a valid Array");
+            }
             isValid = 0;
             containerSpace.innerHTML = "";
+
             break;
         }
 
@@ -110,16 +126,18 @@ function searchElement(array, elementWidth) {
         if (result) {
             clear(id);
 
-            // header.style.display = "flex";
-            // header.style.backgroundColor="blue";
-            headerText.textContent = `Element ${array[index]} found at ${index + 1}`
+            if (screenWidth > 681) {
+                headerText.textContent = `Element ${array[index]} found at ${index + 1}`
+                setTimeout(() => {
+                    headerText.textContent = "";
+                }, 1500);
+            }
+            else {
+                alert(`Element ${array[index]} found at ${index + 1}`);
+            }
             inputField.textContent = "";
             searchedNumber.textContent = "";
             containerSpace.innerHTML = "";
-            setTimeout(() => {
-                headerText.textContent = "";
-                // header.style.display = "none";
-            }, 1500);
             return;
         }
         else
@@ -130,23 +148,26 @@ function searchElement(array, elementWidth) {
     setTimeout(() => {
         clearInterval(id);
         if (!result) {
-            // header.style.display = "flex";
-            // header.style.backgroundColor="blue";
-            headerText.textContent = `Element ${searchedNumber.value} not found`
-            setTimeout(() => {
-                headerText.textContent = "";
-                inputField.textContent = "";
-                searchedNumber.textContent = "";
-                containerSpace.innerHTML = "";
-                // header.style.display = "none";
-            }, 1500);
+            
+            if (screenWidth > 681){
+                headerText.textContent = `Element ${searchedNumber.value} not found`
+                setTimeout(() => {
+                }, 1500);
+            }
+            else{
+                alert(`Element ${searchedNumber.value} not found`)
+            }          
+            headerText.textContent = "";
+            inputField.textContent = "";
+            searchedNumber.textContent = "";
+            containerSpace.innerHTML = "";
         }
     }, (len) * 1100);
 }
 function clear(id) {
     setTimeout(() => {
         clearInterval(id);
-    },1000);
+    }, 1000);
 
 }
 
@@ -165,8 +186,8 @@ function check(array, index, height, elementWidth, oldChild) {
         console.log(Number(searchedNumber.value), array[index]);
         child.style.backgroundColor = "black";
         child.style.color = "white";
-        return true
+        return true;
     }
     else
-    return false;
+        return false;
 }
