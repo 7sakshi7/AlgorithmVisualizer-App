@@ -11,7 +11,7 @@ const show = document.querySelector('.show-array');
 const t1 = new TimelineMax();
 const screenWidth = screen.width;
 if (screenWidth > 681)
-    t1.fromTo(show, 1, { height: "0vh", width: "0vw" }, { height: "66vh", width: "60vw", ease: Power2.easeInOut })
+    t1.fromTo(show, 1, { height: "100vh", width: "100vw" }, { height: "66vh", width: "60vw", ease: Power2.easeInOut })
 else
     t1.fromTo(show, 1, { height: "0vh", width: "0vw" }, { height: "66vh", width: "90vw", ease: Power2.easeInOut })
 
@@ -21,12 +21,35 @@ submit.addEventListener('click', checkInput);
 // checking input fields
 function checkInput(e) {
     if (inputField.value == "") {
-        headerText.textContent = "Enter Array!!! This field can't be empty"
-        setTimeout(() => {
-            headerText.textContent = ""
+        if (screenWidth > 681) {
 
-        }, 1500);
+            headerText.textContent = "Enter Array!!! This field can't be empty"
+            setTimeout(() => {
+                headerText.textContent = ""
+
+            }, 1500);
+        }
+        else {
+            alert('Enter Array!!! This field can\'t be empty')
+        }
         return;
+    }
+    else {
+        if (searchedNumber.value == "" || isNaN(Number(searchedNumber.value))) {
+            if (screenWidth > 681) {
+
+                headerText.textContent = "Enter Number To Be Searched!!! This field can't be empty nor it can't be empty"
+                setTimeout(() => {
+                    headerText.textContent = ""
+
+                }, 1500);
+            }
+            else {
+                alert("Enter Number To Be Searched!!! This field can't be empty nor it can't be empty")
+            }
+            return;
+        }
+
     }
     showArray(e);
 }
@@ -34,34 +57,39 @@ function checkInput(e) {
 // computing styles 
 function showArray(e) {
     e.preventDefault();
-  
+   
     const inputValue = inputField.value;
     const arr = inputValue.split(' ');
 
-   // checking whether array does not have any invalid number
-   let isValid = 1;
-   for(var ele in arr){
-       console.log(Number(ele),typeof Number(ele));
-       if (isNaN(Number(ele))) {
-           headerText.textContent = "Enter a valid Array"
-           setTimeout(() => {
-               headerText.textContent = "";
-           }, 1000);
-           isValid = 0;
-           break;
-       }
+    // checking whether array does not have any invalid number
+    let isValid = 1;
+    for(var ele in arr){
+        console.log(Number(ele),typeof Number(ele));
+        if (isNaN(Number(ele))) {
+            if (screenWidth > 681) {
+                headerText.textContent = "Enter a valid Array"
+                setTimeout(() => {
+                    headerText.textContent = "";
+                }, 1000);
+            }
+            else {
+                alert("Enter a valid Array");
+            }
+            isValid = 0;
+            containerSpace.innerHTML = "";
+            break;
+        }
 
-   }
-   if (isValid==0) return;
+    }
+    if (isValid==0) return;
 
-   // if everything is good
-   const array = arr.map((ele) => Number(ele));
-  
-   create(array);
-   const totalWidth = containerSpace.offsetWidth - array.length - 1;
-   const elementWidth = totalWidth / array.length;
-
-    //    searchElement(array,elementWidth);90 87 23 45 78 47 22
+    // if everything is good
+    const array = arr.map((ele) => Number(ele));
+   
+    create(array);
+    const totalWidth = containerSpace.offsetWidth - array.length - 1;
+    const elementWidth = totalWidth / array.length;
+    
     sortElement(array, elementWidth);
 }
 
@@ -85,6 +113,7 @@ function create(array) {
         child.style.backgroundColor = "yellow";
         child.style.color = "black";
         child.textContent = String(ele);
+        // height.push(elementHeight);
         containerSpace.append(child);
 
     });
