@@ -34,22 +34,6 @@ function checkInput(e) {
         }
         return;
     }
-    else {
-        if (searchedNumber.value == "" || isNaN(Number(searchedNumber.value))) {
-            if (screenWidth > 681) {
-
-                headerText.textContent = "Enter Number To Be Searched!!! This field can't be empty nor it can't be empty"
-                setTimeout(() => {
-                    headerText.textContent = ""
-
-                }, 1500);
-            }
-            else {
-                alert("Enter Number To Be Searched!!! This field can't be empty nor it can't be empty")
-            }
-            return;
-        }
-
     }
     showArray(e);
 }
