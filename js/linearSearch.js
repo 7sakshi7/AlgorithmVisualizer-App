@@ -135,8 +135,8 @@ function searchElement(array, elementWidth) {
             else {
                 alert(`Element ${array[index]} found at ${index + 1}`);
             }
-            inputField.textContent = "";
-            searchedNumber.textContent = "";
+            inputField.value = "";
+            searchedNumber.value = "";
             containerSpace.innerHTML = "";
             return;
         }
@@ -158,8 +158,8 @@ function searchElement(array, elementWidth) {
                 alert(`Element ${searchedNumber.value} not found`)
             }          
             headerText.textContent = "";
-            inputField.textContent = "";
-            searchedNumber.textContent = "";
+            inputField.value = "";
+            searchedNumber.value = "";
             containerSpace.innerHTML = "";
         }
     }, (len) * 1100);
