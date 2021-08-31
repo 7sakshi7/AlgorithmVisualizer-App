@@ -5,36 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shortest Path</title>
+    <title>Document</title>
     <script defer src="../js/shortestPath.js"></script>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: white;
             font-size: 17px;
         }
-        .container {
+
+        /* border: 2px solid black; */
+        /* justify-content: space-evenly; */
+        /* .container {
             width: 100vw;
             height: 80vh;
-            border: 2px solid black;
             display: flex;
             flex-wrap: wrap;
             box-sizing: border-box;
-        }
+        } */
 
         body {
             background: #deeef5;
         }
+
+        .container {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
         .cell {
-            background-color: rgb(255, 255, 255);
-            height: 44px;
-            width: 41px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-            border: 2px solid black;
+            height: 40px;
+            width: 40px;
+            justify-content: center;
+            background: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 20px;
+            box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+            border: 2px solid;
         }
 
         .btn {
@@ -91,9 +109,9 @@
     <button class="btn dest">Click To Select Destination Cell</button>
     <button class="btn blocked">Click To Create Blocked Cell</button>
     <button class="btn submit">Submit</button>
-    <button class="btn reset"><a href="./algorithms/shortestPath.html">Reset</a></button>
+    <button class="btn reset"><a href="./shortestPath.html">Reset</a></button>
     <div class="container">
-        <div class="cell"></div>
+        <!-- <div class="cell"></div> -->
     </div>
 </body>
 
