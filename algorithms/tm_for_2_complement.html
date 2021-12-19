@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+        }
+
+        .container {
+            width: 85vw;
+            height: 100vh;
+            /* border: 2px solid; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* justify-content: space-evenly; */
+        }
+
+        .input-group {
+            width: 15vw;
+            /* border: 2px solid; */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .input-group span {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            background: slateblue;
+
+        }
+
+        .circle {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 4px solid black;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .transition {
+            width: 100px;
+            height: 5px;
+            background: black;
+        }
+
+        .back-transition {
+            left: 626px;
+            width: 218px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            top: 375px;
+            /* border-left: 4px solid; */
+            border-bottom: 7px solid;
+        }
+
+        .self-loop {
+            right: 690px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border-top: 7px solid;
+            border-left: 7px solid;
+            position: absolute;
+            transform: rotate(41deg);
+            top: 236px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- initial transition -->
+        <div class="transition"><span style="font-size: 60px;
+            font-weight: 50px;
+            position: relative;
+            right: -72px;
+            top: -32px;z-index: 6;">></span></div>
+
+         <!-- initial state -->
+
+        <div class="initial circle state">q0</div>
+
+        <!-- transition for q1 -->
+
+        <div class="transition"><span style="font-size: 60px;
+            font-weight: 50px;
+            position: relative;
+            right: -72px;
+            top: -32px;z-index: 6;">></span><span style="font-size:30px;position:relative;top: -10px;left: -16px;">#|#,R</span></div>
+
+            <!-- q1 state -->
+
+        <div class="intermmediate circle state">q1</div>
+
+        <!-- transition for q2 -->
+
+        <div class="transition"><span style="font-size: 60px;
+            font-weight: 50px;
+            position: relative;
+            right: -72px;
+            top: -32px;z-index: 6;">></span><span style="font-size:30px;position:relative;top: -10px;left: -17px;">0|0,R <br>&nbsp;&nbsp;&nbsp;1|1,R</span></div>
+
+            <!-- q2 state -->
+
+        <div class="intermmediate circle state">q2</div>
+
+        <!-- self loop for q2 -->
+
+        <div class="self-loop" style="left: 550px;"><span style="font-size: 30px;
+            position: absolute;
+            top: -28px;
+            
+            transform: rotate(
+        -41deg);border-bottom: white;border-right: white;"><span style="font-size:30px;position:relative;top: -68px;left: -17px;">0|0,R <br>1|1,R</span></span></div>
+
+        <!-- transition for q3 -->
+
+        <div class="transition"><span style="font-size: 60px;
+            font-weight: 50px;
+            position: relative;
+            right: -72px;
+            top: -32px;z-index: 6;">></span><span style="font-size:30px;position:relative;top: -10px;left: -16px;">#|#,L</span></div>
+
+            <!-- q3 state -->
+
+        <div class="final circle" style="display: flex; justify-content: center; align-items: center;">
+            q3
+        </div>
+
+        <!-- self loop for q3 -->
+
+        <div class="self-loop"><span style="font-size: 30px;
+            
+            position: absolute;
+            top: -28px;
+            
+            transform: rotate(
+        -41deg);border-bottom: white;border-right: white;"><span style="font-size:30px;position:relative;top: -38px;left: -17px;">0|0,L</span></span></div>
+
+        <!-- transition for q4 -->
+
+        <div class="transition"><span style="font-size: 60px;
+            font-weight: 50px;
+            position: relative;
+            right: -72px;
+            top: -32px;z-index: 6;">></span><span style="font-size:30px;position:relative;top: -10px;">1|1,L</span></div>
+
+            <!-- q4 state -->
+
+        <div class="trap circle" style="display: flex; justify-content: center; align-items: center;font-weight: bold;">
+            q4</div>
+
+            <!-- self loop for q4 -->
+
+        <div class="self-loop" style="right: 490px;"><span style="font-size: 30px;
+            position: absolute;
+            left: -25px;
+            top: -28px;
+            
+            transform: rotate(
+
+        -41deg);border-bottom: white;border-right: white;"><span style="font-size:30px;position:relative;top: -37px;">0|1,L <br>1|0,L</span></span></div>
+
+        <!-- transition for halt accept -->
+
+        <div class="transition"><span style="font-size: 60px;
+        font-weight: 50px;
+        position: relative;
+        right: -72px;
+        top: -32px;z-index: 6;">></span><span style="font-size:30px;position:relative;top: -10px;left: -16px;">#|#,S</span></div>
+
+        <!-- halt accept -->
+
+        <div class="initial circle state" style="display: flex; justify-content: center; align-items: center;font-weight: bold;">ha</div>
+
+    </div>
+
+    <div class="input-group">
+        <input type="text" class="input-field" placeholder="Enter array elements">
+        <button>Submit</button>
+    </div>
+
+    <script src="../js/tm_for_2_complement.js"></script>
+
+</body>
+
+</html>

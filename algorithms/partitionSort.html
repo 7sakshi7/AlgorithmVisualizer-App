@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../algo.css">
+    <style>
+        header {
+            color: rgb(8, 8, 8);
+
+        }
+
+        .show-array {
+            background: #1e8585;
+            box-shadow: 2px 2px 15px #1e8585;
+        }
+
+        .input-field {
+            background: teal;
+        }
+
+        input[type="submit"] {
+            border: 3px solid teal;
+        }
+
+        @media screen and (max-width:681px) {
+            .info {
+                width: 70vw;
+                margin-bottom: 3rem;
+            }
+
+            .container {
+                justify-content: space-evenly;
+            }
+
+            .show-array {
+                margin-top: 6rem;
+                width: 90vw;
+            }
+
+            .input-field-container {
+                display: block;
+                margin: auto;
+                width: 80w;
+            }
+
+            .input-field {
+                padding: 10px 56px;
+                margin-left: 20px;
+            }
+
+            input.input-field.submit {
+                margin: auto;
+                margin-top: 1rem;
+                display: block;
+                width: 40vw;
+            }
+
+            .headerText {
+                color: white;
+            }
+        }
+
+        @media screen and (max-width:538px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .input-field-container {
+                position: absolute;
+                padding: 0;
+                width: 90vw;
+                bottom: -37rem;
+            }
+
+            .show-array {
+                margin-top: 0rem;
+            }
+
+            .input-field {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            input.input-field.submit {
+                margin-left: 20px;
+                margin-top: 1rem;
+                display: block;
+                width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>QUICK SORT</h1>
+    <header>
+        <div class="headerText"></div>
+    </header>
+    <div class="container">
+        <div class="info">
+            <h1>Some Instructions For Visualizing it</h1>
+            <p>Quick Sort is based on divide and Conquer.We select a ppivot element and from left we find element
+                greater than pivot element and if we found we swap it and from right we find smaller element than pivot
+                .If found again we swap. When the array will be displayed it will be in yellow color. Darkorange color
+                means the pivot element. If element is in coral color means that we looking for an element greater than
+                pivot. Pink color means we are looking for an elemnt smaller than element .If we find such elements we swap them. After one pass the pivot
+                selected will be at its correct position and from that index array is partitioned into two which is
+                showed by different color. Recursively we solve both parts with same alogorithm.
+            </p>
+
+            <h3>* Entering array is an mandatory field</h3>
+            <h3>Add Array Elemnts separated by space, Space will be considered as spliting point</h3>
+            <h3>Ex - 3 4 5 6</h3>sx7
+            <h3>3456 will be considered as one number</h3>
+            <h3>* Click On Search button after entering array and value</h3>
+        </div>
+        <div class="show-array">
+            <div class="container-space">
+            </div>
+        </div>
+    </div>
+
+    <div class="input-field-container">
+        <input type="text" class="input-field array" placeholder="Enter array elements">
+        <input type="reset" class="input-field clear" placeholder="Clear fields" onclick="clearFields()">
+        <input type="submit" class="input-field submit" value="SUBMIT" class="input-field submit">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../js/partitionSort.js"></script>
+</body>
+
+</html>

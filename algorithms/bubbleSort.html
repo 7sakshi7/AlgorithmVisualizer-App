@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+    <link rel="stylesheet" href="../algo.css">
+    <style>
+        .headerText {
+            color: rgb(5, 5, 5);
+        }
+
+        @media screen and (max-width:681px) {
+            .header {
+                position: fixed;
+            }
+
+            .info {
+                width: 80vw;
+                margin-bottom: 3rem;
+            }
+
+            .container {
+                justify-content: space-evenly;
+            }
+
+            .show-array {
+                margin-top: 6rem;
+                width: 90vw;
+            }
+        }
+
+        @media screen and (max-width:638px) {
+            .input-field {
+                margin: 6px 0;
+            }
+
+        }
+
+        @media screen and (max-width:538px) {
+            body {
+                justify-content: flex-start;
+            }
+
+            .input-field-container {
+                position: absolute;
+                padding: 0;
+                width: 90vw;
+                bottom: -41rem;
+            }
+
+            .show-array {
+                margin-top: 0rem;
+            }
+
+            .input-field {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            input.input-field.submit {
+                margin-left: 20px;
+                margin-top: 1rem;
+                display: block;
+                width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BUBBLE SORT</h1>
+    <header>
+        <div class="headerText"></div>
+    </header>
+    <div class="container">
+        <div class="info">
+            <h1>Some Instructions For Visualizing it</h1>
+            <p>Initialy All the array is in yellow color. When the alogorithm starts there will be two color Green
+                Yellow and Light Blue which means they are comparing with each other. if element in green yellow color
+                is greater then the element are swapped and after each pass the greatest element will at the end. Once
+                all the elements become orange means they are sorted.</p>
+
+            <h3>* Entering array is an mandatory field</h3>
+            <h3>Add Array Elemnts separated by space, Space will be considered as spliting point</h3>
+            <h3>Ex - 3 4 5 6</h3>
+            <h3>3456 will be considered as one number</h3>
+            <h3>* Click On Search button after entering array and value</h3>
+            <h3>* Click On Reset Button To start from begining</h3>
+        </div>
+        <div class="show-array">
+            <div class="container-space">
+            </div>
+        </div>
+    </div>
+
+    <div class="input-field-container">
+        <input type="text" class="input-field array" placeholder="Enter array elements">
+        <input type="reset" class="input-field clear" placeholder="Clear fields" onclick="clearFields()">
+        <input type="submit" class="input-field submit" value="SUBMIT" class="input-field submit">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="module" src="../js/bubbleSort.js"></script>
+</body>
+
+</html>

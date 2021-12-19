@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header_content">
+            <h2>Enjoy the new Way of studying
+                algorithms</h2>
+            <h1>Algorithm Visualizer</h1>
+            <button class="btn">Start Visualizing</button>
+            <div class="scroll-container-home" style="margin-top: 4rem;">
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <span class="text">Scroll down</span>
+
+            </div>
+        </div>
+    </header>
+
+    <section class=" main-container" id="searching">
+
+        <!-- tabs Container -->
+        <div class="tabs">
+            <h1 style="font-size: 3rem;">Visualize</h1>
+            <div class="active tab one">Searching Techniques</div>
+            <div class="tab two">Sorting Techniques</div>
+            <div class="tab three">Automata</div>
+        </div>
+
+
+        <!-- Automata -->
+        <ul class="sub-container three hidden">
+            <a href="./algorithms/ending_with_ab.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Ending with ab</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+
+            <a href="./algorithms/even_0_odd_1.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Even 0 Odd 1</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+
+            <a href="./algorithms/start_with0_end_with1.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Start with 0 and end with 1</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/exactly_four.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Containing Exactly four ones</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/tm_for_2_complement.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">TM for 2's Complement</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+
+        <!-- Sorting Techniques -->
+        <ul class="sub-container two hidden">
+            <a href="./algorithms/bubbleSort.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Bubble Sort</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/selectionSort.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Selection Sort</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/insertionSort.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Insertion Sort</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/partitionSort.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Quick Sort</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/mergeSort.html">
+                <li class="cell ">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Merge Sort</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+
+
+        <!-- 
+            Searching Algorithms
+         -->
+        <ul class="sub-container one">
+            <a href="./algorithms/linearSearch.html">
+                <li class="cell">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Linear Search</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/binarySearch.html">
+                <li class="cell">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Binary Search</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/bfs.html">
+                <li class="cell">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Breadth First Search</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/dfs.html">
+                <li class="cell">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Depth First Search</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="./algorithms/shortestPath.html">
+                <li class="cell">
+                    <div class="cell-child">
+                        <div class="cell_box">
+                            <div class="cell_title">Shortest Path Algorithm</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+    </section>
+
+    <script>
+        const tabs = document.querySelector('.main-container .tabs');
+        const tabContainer = document.querySelectorAll('.main-container .tabs .tab');
+        const subContainer = document.querySelectorAll('.sub-container')
+        const bgAnim = document.querySelector('.bg_anim');
+        let activeContainer;
+        tabs.addEventListener('click', (e) => {
+            console.log(e.target.classList, e.target.classList.contains('tab'));
+            if (!e.target.classList.contains('tab')) return;
+
+            const clss = e.target.classList[e.target.classList.length - 1];
+
+            tabContainer.forEach((tab) => {
+                tab.classList.remove('active');
+            });
+
+            e.target.classList.add('active');
+
+            subContainer.forEach((container) => {
+                if (container.classList.contains(clss)) {
+                    container.classList.remove('hidden');
+                    container.style.opacity = "0";
+                    activeContainer = container;
+                }
+                else {
+                    container.classList.add('hidden');
+                }
+            })
+
+            setTimeout(() => {
+                activeContainer.style.opacity = "1";
+            }, 100);
+        })
+
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

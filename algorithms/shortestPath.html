@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="../js/shortestPath.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 17px;
+        }
+
+        /* border: 2px solid black; */
+        /* justify-content: space-evenly; */
+        /* .container {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        } */
+
+        body {
+            background: #deeef5;
+        }
+
+        .container {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .cell {
+            height: 40px;
+            width: 40px;
+            justify-content: center;
+            background: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 20px;
+            box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+            border: 2px solid;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 0;
+            outline: 0;
+            margin: 20px 30px;
+            font-weight: bold;
+            background: rgb(13 193 160);
+            color: aliceblue;
+            color: white;
+            font-size: 18px;
+            display: inline-block;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .source:hover,
+        .source:focus {
+            /* border-radius: 23px; */
+            transform: scale(0.9);
+            background: coral;
+            /* color: rgb(8, 8, 8); */
+        }
+
+        .dest:hover,
+        .dest:visited {
+            /* border-radius: 23px; */
+            background: deeppink;
+            transform: scale(0.9);
+            /* color: rgb(8, 8, 8); */
+        }
+
+        .blocked:hover,
+        .blocked:visited {
+            /* border-radius: 23px; */
+            background: black;
+            transform: scale(0.9);
+            /* color: rgb(8, 8, 8); */
+        }
+
+        .submit:visited,
+        .submit:hover {
+            /* border-radius: 23px; */
+            background: rgb(21, 88, 175);
+            transform: scale(0.9);
+            /* color: rgb(0, 0, 0); */
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn source">Click To Select Source Cell</button>
+    <button class="btn dest">Click To Select Destination Cell</button>
+    <button class="btn blocked">Click To Create Blocked Cell</button>
+    <button class="btn submit">Submit</button>
+    <button class="btn reset"><a href="./shortestPath.html">Reset</a></button>
+    <div class="container">
+        <div class="cell"></div>
+    </div>
+</body>
+
+</html>
