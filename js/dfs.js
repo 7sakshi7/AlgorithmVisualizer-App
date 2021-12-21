@@ -92,7 +92,7 @@ function color(e) {
     // console.log();
 }
 function sleep() {
-    return new Promise(resolve => setTimeout(resolve, 1000));
+    return new Promise(resolve => setTimeout(resolve, 10));
 }
 
 // Algorithm
